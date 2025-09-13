@@ -190,7 +190,7 @@ class TransformerModel(nn.Module):
     """transformer-based language model with gradient checkpointing support"""
     
     def __init__(self, vocab_size, embed_dim, num_heads, num_layers, max_seq_len, dropout_prob, 
-                 use_gradient_checkpoint=False, use_flash_attn=False):
+                use_gradient_checkpoint=False, use_flash_attn=False):
         super().__init__()
         # token embedding
         self.token_embedding = nn.Embedding(vocab_size, embed_dim)

@@ -1,1 +1,4 @@
-nohup python3 -u gpt_a100.py > a100_train.log 2>&1 &
+nohup python3 -u gpt_original.py > gpt_original.log 2>&1 &
+
+nohup ./grid_search.sh > grid_master.log 2>&1 &
+tail -f grid_master.log

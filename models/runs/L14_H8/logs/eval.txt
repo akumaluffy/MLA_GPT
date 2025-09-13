@@ -1,0 +1,32 @@
+Project root: /workspace/GPT
+Your base folder is: /workspace/GPT
+Flash Attention is available!
+Tokenizer loaded from /workspace/GPT/tokenization/custom_tokenizer.json
+Using device: cuda
+Evaluating checkpoint: /workspace/GPT/models/checkpoints/best_model.pt
+Checkpoint loaded. Model configuration:
+  batch_size: 72
+  block_size: 512
+  n_embd: 768
+  n_head: 8
+  n_layer: 14
+  dropout: 0.1
+  max_iters: 10000
+  eval_interval: 100
+  learning_rate: 0.001
+  eval_iters: 5
+  accumulation_steps: 4
+  warmup_iters: 500
+  weight_decay: 0.0001
+  beta1: 0.9
+  beta2: 0.95
+  gradient_checkpointing: False
+  use_flash_attn: True
+  checkpoint_dir: checkpoints
+  log_dir: /workspace/GPT/models/runs/L14_H8/logs
+  seed: 1337
+Model initialized with 171,090,856 parameters
+
+Evaluation Results:
+  Average Loss: 3.7039
+  Perplexity:   40.61
