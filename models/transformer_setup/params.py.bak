@@ -29,3 +29,7 @@ class ModelConfig:
         self.checkpoint_dir = 'checkpoints' # Directory to save checkpoints
         self.log_dir = 'logs'               # Directory to save logs
         self.seed = 1337                    # Random seed
+
+        # MLA Params
+        self.latent_dim = 128               # Latent vector dim, context vs. speed and memory efficiency
+        self.n_latent_vec = 256             # Number of learnable latent vectors

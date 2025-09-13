@@ -3,18 +3,18 @@ class ModelConfig:
         # model architecture
         self.batch_size = 72                # Batch size per GPU
         self.block_size = 512               # Context size
-        self.n_embd = 768
-        self.n_head = 8
-        self.n_layer = 8
+        self.n_embd = 768                   # Embed dim
+        self.n_head = 8                     # Attention heads
+        self.n_layer = 8                    # Transformer layers
         self.dropout = 0.1                  # Dropout rate
         
         # training parameters
-        self.max_iters = 100              # Number of iterations
+        self.max_iters = 1000               # Number of iterations
         self.eval_interval = 100            # Evaluation interval
-        self.learning_rate = 1e-3          # Learning rate
+        self.learning_rate = 1e-3           # Learning rate
         self.eval_iters = 5                 # Evaluation iterations
-        self.accumulation_steps = 4         # Gradient accumulation steps
-        self.warmup_iters = 500             # Learning rate warmup iterations
+        self.accumulation_steps = 4         # Gradient accumulation steps, memory vs. compute
+        self.warmup_iters = 500             # Learning rate warmup iterations, longer for stability
         
         # Optimizer Settings
         self.weight_decay = 1e-4
@@ -22,10 +22,13 @@ class ModelConfig:
         self.beta2 = 0.95
         
         # Optimization flags
-        self.gradient_checkpointing = False  # Use gradient checkpointing
-        # Above does not work
-        self.use_flash_attn = True          # Use Flash Attention if available
+        self.gradient_checkpointing = False  # Use gradient checkpointing, crucial for large models
+        self.use_flash_attn = True          # Use Flash Attention if available (mandatory for H100)
         
-        self.checkpoint_dir='checkpoints'
+        self.checkpoint_dir='checkpoints'   # Directory to save checkpoints
         self.log_dir = 'logs'               # Directory to save logs
         self.seed = 1337                    # Random seed
+
+        # MLA Params
+        self.latent_dim = 128               # Latent vector dim, context vs. speed and memory efficiency
+        self.n_latent_vec = 256             # Number of learnable latent vectors
